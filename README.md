@@ -15,18 +15,18 @@ Using QuickDBD, I created the following:
 ![ERD_QuickDBD.png](EmployeeSQL/ERD_QuickDBD.png)
 
 The benefit of using a tool like QuickDBD is that I can quickly input simple, syntax-light code to create tables like
-'''
+```
 departments
 ---
 dept_no varchar(4) PK
 dept_name varchar(10)
-'''
+```
 
 and the tool will visually organize all that information. This way I can really focus on getting to know the data, which will make the actual coding process so much faster.
 
 A nice bit about this tool in particular is that it can also export sample code to create the tables:
 
-'''
+```
 CREATE TABLE "departments" (
     "dept_no" varchar(4)   NOT NULL,
     "dept_name" varchar(30)   NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE "departments" (
         "dept_no"
      )
 );
-'''
+```
 
 ## Data Engineering
 
