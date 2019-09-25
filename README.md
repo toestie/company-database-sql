@@ -6,7 +6,7 @@ The goal of this project is to practice:
 2. Data Engineering
 3. Data Analysis
 
-by importing given csv files of employee data into an SQL database and sorting through some relevant data.
+by importing given csv files of employee data into an SQL database and sorting through the relevant data to find interesting relationships.
 
 ## Data Modeling
 Looking at the headings for the csv files, I saw that unique employees and departments were identified with "emp_no" and "dept_no" respectively. Before creating the database, I wanted to make a schematic for what data is represented and how each table would be connected. This way, all the information is organized in my head before I start any coding.
@@ -37,5 +37,8 @@ CREATE TABLE "departments" (
 ```
 
 ## Data Engineering
+It seems to me that there is a complete list of departments with department numbers and a list of employees with employee numbers. Those numbers would be well suited to primary keys since, I assume, they are unique to each department or employee.
+
+no primary key for dept emp because certain employees are in multiple departments
 
 ## Data Analysis
