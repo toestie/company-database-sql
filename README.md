@@ -10,7 +10,7 @@ by importing given csv files of employee data into an SQL database and sorting t
 Looking at the headings for the csv files, I saw that unique employees and departments were identified with "emp_no" and "dept_no" respectively. Before creating the database, I wanted to make a schematic for what data is represented and how each table would be connected.
 
 Using QuickDBD, I created the following:
-![EmployeeSQL/ERD_QuickDBD.png](ERD_QuickDBD.png)
+![ERD_QuickDBD.png](EmployeeSQL/ERD_QuickDBD.png)
 
 ## Data Engineering
 
