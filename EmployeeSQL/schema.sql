@@ -4,15 +4,15 @@
 );
 
 CREATE TABLE "dept_emp" (
-    "emp_no" int   PRIMARY KEY NOT NULL,
+    "emp_no" int   NOT NULL,
     "dept_no" varchar(4)   NOT NULL,
     "from_date" varchar(10)   NOT NULL,
     "to_date" varchar(10)   NOT NULL
 );
 
 CREATE TABLE "dept_manager" (
-    "dept_no" varchar(4)   PRIMARY KEY NOT NULL,
-    "emp_no" int   NOT NULL,
+    "dept_no" varchar(4)    NOT NULL,
+    "emp_no" int	NOT NULL,
     "from_date" varchar(10)   NOT NULL,
     "to_date" varchar(10)   NOT NULL
 );
@@ -34,7 +34,7 @@ CREATE TABLE "salaries" (
 );
 
 CREATE TABLE "titles" (
-    "emp_no" int   PRIMARY KEY NOT NULL,
+    "emp_no" int   NOT NULL,
     "title" varchar(60)   NOT NULL,
     "from_date" varchar(10)   NOT NULL,
     "to_date" varchar(10)   NOT NULL
