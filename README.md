@@ -37,9 +37,15 @@ CREATE TABLE "departments" (
 ```
 
 ## Data Engineering
-It seems to me that there is a complete list of departments with department numbers and a list of employees with employee numbers. Those numbers would be well suited to primary keys since, I assume, they are unique to each department or employee.
+It seems to me that there is a complete list of departments with department numbers and a list of employees with employee numbers. Those numbers would be well suited to primary keys since, I assume, they are unique to each department or employee. This logic also applies to the salaries table as well; theoretically an employee should only have one salary, so each salary entry is tied to a unique employee number.
 
-no primary key for dept emp because certain employees are in multiple departments
+This is not true, however, for titles, managers, and departments. In the table of employees and their departments it is possible to have multiple entries with the same department represented (preventing us from using deptartment number as a primary key), and it is possible for employees to be part of multiple departments (preventing us from using employee number as a primary key). Managers are similar; it is possible for a manager to be part of multiple departments. Finally, a person can have multiple titles. Therefore in these three tables (titles, dept_manager, and dept_emp), there are no primary keys specified.
+
+In terms of the data types, I wanted to specify the number of characters for the VARCHAR datatypes in order to optimize run times when querying. There are certain datasets that were ideal for this: 
+1. All the dates had 10 characters in the form XXXX-XX-XX, so I could specify those as VARCHAR(10). 
+2. Names were split into first and last, so I could safely assume that a last name or first name alone would not exceed 30 characters.
+3. Gender identifiers were one letter, either M or F.
+4. The department number was a mix of one letter and a number, but never exceeded 4 characters (as can be verified by the short list of all departments)
 
 ## Data Analysis
 ### List the following details of each employee:
@@ -123,8 +129,20 @@ WHERE e.emp_no IN (
 );
 ```
 
-### In descending order, list the frequency count of employee last names,
--- i.e., how many employees share each last name.
+### List employee last names by count in descending order
+SQL can do a lot more than just query for specific values in tables, it can operate on those specific entries looking for sum totals, averages, maximum values, minimum values, sort values, etc. As a demonstration, we can sort employee last names by their popularity by counting all entries of last names.
+
+The "GROUP BY" statement is useful in this case as a way to aggregate data within a specific dataset (contrasted with "WHERE" statements which filter particular slices of a dataset). "ORDER BY" allows us to organize data in intuitive ways. It is useful to note that it does not jumble rows as it sorts the data.
+
 ```
 SELECT last_name, COUNT(last_name) as "Last Name Count" FROM employees GROUP BY last_name ORDER BY "Last Name Count" DESC;
+```
+
+or in a more readable format:
+
+```
+SELECT last_name, COUNT(last_name) as "Last Name Count"
+FROM employees
+GROUP BY last_name
+ORDER BY "Last Name Count" DESC;
 ```
