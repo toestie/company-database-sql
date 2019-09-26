@@ -48,8 +48,11 @@ In terms of the data types, I wanted to specify the number of characters for the
 4. The department number was a mix of one letter and a number, but never exceeded 4 characters (as can be verified by the short list of all departments)
 
 ## Data Analysis
-### List the following details of each employee:
--- employee number, last name, first name, gender, and salary.
+### List employees and their salaries
+Data spread across multiple tables can be useful together, especially as they relate to the same individuals. A join between two tables can be a quick way to see data in multiple different tables if they are related datasets. For example, we can take the table including all employee information and the table including all employee salary information, and look at that data side by side.
+
+Including side information like gender could be very useful in looking at salary trends based on employee. For example, this particular query could be used to see if this company has any discrepancies in pay between men and women.
+
 ```
 SELECT e.emp_no, e.last_name, e.first_name, e.gender, s.salary
 FROM employees as e
@@ -58,6 +61,7 @@ ON e.emp_no = s.emp_no;
 ```
 
 ### List employees who were hired in 1986.
+
 ```
 SELECT emp_no, first_name, last_name FROM employees WHERE hire_date LIKE '1986%';
 ```
