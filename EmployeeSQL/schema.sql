@@ -68,7 +68,7 @@ dept_name varchar(30)
 
 dept_emp
 ---
-emp_no int PK FK - employees.emp_no
+emp_no int FK - employees.emp_no
 dept_no varchar(4) FK >- departments.dept_no
 from_date varchar(10)
 to_date varchar(10)
@@ -76,7 +76,7 @@ to_date varchar(10)
 dept_manager
 ---
 dept_no varchar(4) FK >- departments.dept_no
-emp_no int PK FK - employees.emp_no
+emp_no int FK - employees.emp_no
 from_date varchar(10)
 to_date varchar(10)
 
@@ -98,7 +98,7 @@ to_date varchar(10)
 
 titles
 ---
-emp_no int PK FK - employees.emp_no
+emp_no int FK - employees.emp_no
 title varchar(60)
 from_date varchar(10)
 to_date varchar(10)
